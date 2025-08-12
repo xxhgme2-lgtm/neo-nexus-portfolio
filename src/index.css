@@ -84,8 +84,19 @@ All colors MUST be HSL.
 }
 
 @layer utilities {
-  .gradient-text { background-image: var(--gradient-primary); -webkit-background-clip: text; background-clip: text; color: transparent; }
-  .neon-ring { box-shadow: var(--shadow-neon); }
-  .hover-scale { @apply transition-transform duration-200; }
-  .hover-scale:hover { @apply scale-105; }
+  .gradient-text { 
+    background-image: var(--gradient-primary); 
+    -webkit-background-clip: text; 
+    background-clip: text; 
+    color: transparent; 
+  }
+  .neon-ring { 
+    box-shadow: var(--shadow-neon); 
+  }
+  .hover-scale { 
+    transition: transform 0.2s ease-in-out; 
+  }
+  .hover-scale:hover { 
+    transform: scale(1.05); 
+  }
 }
