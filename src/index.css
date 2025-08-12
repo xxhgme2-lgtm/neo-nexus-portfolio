@@ -53,12 +53,19 @@ All colors MUST be HSL.
     --neon-violet: 265 100% 70%;
     --neon-gold: 45 100% 55%;
 
+    /* Derived color tokens (full HSL) */
+    --color-neon-cyan: hsl(190 100% 55%);
+    --color-neon-magenta: hsl(300 100% 60%);
+    --color-neon-violet: hsl(265 100% 70%);
+
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--neon-cyan)), hsl(var(--neon-violet)) 60%, hsl(var(--neon-magenta)) 100%);
+    --gradient-primary: linear-gradient(135deg, var(--color-neon-cyan), var(--color-neon-violet) 60%, var(--color-neon-magenta) 100%);
     --gradient-deep-space: radial-gradient(1200px 800px at 50% -10%, hsl(230 60% 10%) 0%, hsl(230 60% 6%) 35%, hsl(230 60% 4%) 60%, hsl(230 60% 3%) 100%);
 
     /* Shadows */
-    --shadow-neon: 0 10px 30px -10px hsl(var(--neon-violet) / 0.4), 0 0 50px hsl(var(--neon-cyan) / 0.25);
+    --shadow-neon-violet: hsla(265, 100%, 70%, 0.4);
+    --shadow-neon-cyan: hsla(190, 100%, 55%, 0.25);
+    --shadow-neon: 0 10px 30px -10px var(--shadow-neon-violet), 0 0 50px var(--shadow-neon-cyan);
   }
 
   .dark {
@@ -77,7 +84,7 @@ All colors MUST be HSL.
 }
 
 @layer utilities {
-  .gradient-text { background-image: linear-gradient(135deg, hsl(var(--neon-cyan)), hsl(var(--neon-violet)) 60%, hsl(var(--neon-magenta)) 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .gradient-text { background-image: var(--gradient-primary); -webkit-background-clip: text; background-clip: text; color: transparent; }
   .neon-ring { box-shadow: var(--shadow-neon); }
   .hover-scale { @apply transition-transform duration-200; }
   .hover-scale:hover { @apply scale-105; }
