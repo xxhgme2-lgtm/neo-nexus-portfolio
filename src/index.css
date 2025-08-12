@@ -53,7 +53,7 @@ All colors MUST be HSL.
     --neon-violet: 265 100% 70%;
     --neon-gold: 45 100% 55%;
 
-    /* Derived color tokens (full HSL) */
+    /* Derived color tokens */
     --color-neon-cyan: hsl(190 100% 55%);
     --color-neon-magenta: hsl(300 100% 60%);
     --color-neon-violet: hsl(265 100% 70%);
@@ -74,10 +74,14 @@ All colors MUST be HSL.
 }
 
 @layer base {
-  * { @apply border-border; }
+  * {
+    border-color: hsl(var(--border));
+  }
+  
   body {
-    @apply bg-background text-foreground;
-    font-family: 'Exo 2', system-ui, -apple-system, 'Segoe UI', Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji';
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     background-image: var(--gradient-deep-space);
     background-attachment: fixed;
   }
@@ -90,12 +94,15 @@ All colors MUST be HSL.
     background-clip: text; 
     color: transparent; 
   }
+  
   .neon-ring { 
     box-shadow: var(--shadow-neon); 
   }
+  
   .hover-scale { 
     transition: transform 0.2s ease-in-out; 
   }
+  
   .hover-scale:hover { 
     transform: scale(1.05); 
   }
