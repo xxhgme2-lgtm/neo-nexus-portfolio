@@ -79,5 +79,6 @@ All colors MUST be HSL.
 @layer utilities {
   .gradient-text { background: var(--gradient-primary); -webkit-background-clip: text; background-clip: text; color: transparent; }
   .neon-ring { box-shadow: var(--shadow-neon); }
-  .hover-scale { @apply transition-transform duration-200 hover:scale-105; }
+  .hover-scale { @apply transition-transform duration-200; }
+  .hover-scale:hover { @apply scale-105; }
 }
